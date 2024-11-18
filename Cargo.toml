@@ -1,0 +1,47 @@
+[package]
+name = "spectrum-analyzer"
+description = """
+An easy to use and fast `no_std` library (with `alloc`) to get the frequency
+spectrum of a digital signal (e.g. audio) using FFT.
+"""
+version = "1.5.0"
+authors = ["Philipp Schuster <phip1611@gmail.com>"]
+edition = "2021"
+keywords = ["fft", "spectrum", "frequencies", "audio", "dsp"]
+categories = ["multimedia", "no-std"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/phip1611/spectrum-analyzer"
+repository = "https://github.com/phip1611/spectrum-analyzer"
+documentation = "https://docs.rs/spectrum-analyzer"
+exclude = [
+    "res",
+    "test",
+    ".github"
+]
+
+[[bench]]
+name = "fft_spectrum_bench"
+harness = false
+
+[dependencies]
+
+[dev-dependencies]
+# readmp3 files in tests and examples
+minimp3 = "0.5.1"
+# visualize spectrum in tests and examples
+audio-visualizer = "0.4.0"
+# get audio input in examples
+cpal = "0.15.2"
+# audio data buffering
+ringbuffer = "0.15.0"
+rand = "0.8.5" # for benchmark
+# exit in examples
+ctrlc = "~3.3.1" # locked because of repo MSRV
+# for benchmark
+criterion = "~0.4.0" # locked because of repo MSRV
+
+
+# otherwise FFT and other code is too slow
+[profile.dev]
+opt-level = 1
