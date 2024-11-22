@@ -37,7 +37,7 @@ cpal = "0.15.2"
 ringbuffer = "0.15.0"
 rand = "0.8.5" # for benchmark
 # exit in examples
-ctrlc = "~3.3.1" # locked because of repo MSRV
+ctrlc = "~3.4.5" # locked because of repo MSRV
 # for benchmark
 criterion = "~0.4.0" # locked because of repo MSRV
 
